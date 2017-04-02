@@ -17,9 +17,77 @@ extra-source-files:  ChangeLog.md, README.md
 cabal-version:       >=1.10
 
 library
-  -- exposed-modules:     
+  exposed-modules:    Application
+                    , Foundation
+                    , Settings
+                    , Settings.StaticFiles
+                    , Model
+                    , Handler.Home
+
   -- other-modules:       
   -- other-extensions:    
+  default-extensions: TemplateHaskell
+              QuasiQuotes
+              OverloadedStrings
+              NoImplicitPrelude
+              CPP
+              MultiParamTypeClasses
+              TypeFamilies
+              GADTs
+              GeneralizedNewtypeDeriving
+              FlexibleContexts
+              EmptyDataDecls
+              NoMonomorphismRestriction
+              DeriveDataTypeable
+              RecordWildCards
+              ViewPatterns
   build-depends:       base >=4.9 && <4.10
+                     , yesod
+                     , yesod-core                    >= 1.4.0      && < 1.5
+                     , yesod-auth                    >= 1.4.0      && < 1.5
+                     , yesod-static                  >= 1.4.0.3    && < 1.6
+                     , yesod-form                    >= 1.4.0      && < 1.5
+                     , classy-prelude                >= 0.10.2
+                     , classy-prelude-conduit        >= 0.10.2
+                     , classy-prelude-yesod          >= 0.10.2
+                     , bytestring                    >= 0.9        && < 0.11
+                     , text                          >= 0.11       && < 2.0
+                     , persistent                    >= 2.0
+                     , persistent-postgresql         >= 2.1.2
+                     , persistent-template           >= 2.0
+                     , template-haskell
+                     , shakespeare                   >= 2.0        && < 2.1
+                     , hjsmin                        >= 0.1        && < 0.3
+                     , monad-control                 >= 0.3        && < 1.1
+                     , wai-extra                     >= 3.0        && < 3.1
+                     , yaml                          >= 0.8        && < 0.9
+                     , http-conduit                  >= 2.1
+                     , directory                     >= 1.1        && < 1.3
+                     , warp                          >= 3.0        && < 4
+                     , data-default
+                     , aeson                         >= 0.6
+                     , conduit                       >= 1.0        && < 2.0
+                     , monad-logger                  >= 0.3        && < 0.4
+                     , fast-logger                   >= 2.2        && < 2.5
+                     , wai-logger                    >= 2.2        && < 2.4
+                     , safe-exceptions               < 0.1.4.0
+                     , file-embed
+                     , safe
+                     , unordered-containers
+                     , containers
+                     , vector
+                     , time
+                     -- snip
+                     , wai
+
   hs-source-dirs:      src
   default-language:    Haskell2010
+
+executable         antikythera
+    main-is:           Main.hs
+    hs-source-dirs:    app
+    build-depends:     base
+                     , antikythera
+                     , yesod
+
+    ghc-options:       -threaded -O2
