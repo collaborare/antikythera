@@ -6,7 +6,8 @@ CalDAV/CardDAV server in Haskell
 
 * We need full compliance with the RFCs for CalDAV and CardDav
 (e.g.: [RFC4791][4791])
-* web handling via Snap or Yesod
+* web handling via Snap or Yesod -> For now I (nek0) am going with yesod,
+because of familiarity.
 * There are some libraries covering some aspects of the Task:
 	* VCard: [vcard][vcard] or [hs-vcard][hs-vcard]
 	* WebDAV: [DAV][DAV]
